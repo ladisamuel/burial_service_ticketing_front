@@ -15,7 +15,7 @@ import AdminAnnouncementsPage from './pages/AdminAnnouncementsPage.jsx'
 import ProtectedRoute from './components/admin/ProtectedRoute.jsx'
 import Tribute from './pages/Tribute.jsx'
 import HomePage from './pages/HomePage.jsx'
-import HomePage2 from './pages/HomePage2.jsx'
+// import HomePage2 from './pages/HomePage2.jsx'
 import UserLayout from './components/admin/UserLayout.jsx'
 import GalleryPage from './pages/GalleryPage.jsx'
 
@@ -24,7 +24,7 @@ export default function App() {
     <Routes>
       {/* Public routes */}
       <Route path="/" element={<UserLayout><HomePage/></UserLayout>} />
-      <Route path="/chk" element={<UserLayout><HomePage2/></UserLayout>} />
+      {/* <Route path="/chk" element={<UserLayout><HomePage2/></UserLayout>} /> */}
       <Route path="/gallery" element={<UserLayout><GalleryPage/></UserLayout>} />
       <Route path="/share-memory" element={<UserLayout><Tribute /></UserLayout>} />
       <Route path="/request-ticket" element={<UserLayout><RequestTicketPage /></UserLayout>} />

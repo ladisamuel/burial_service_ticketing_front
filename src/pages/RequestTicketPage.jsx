@@ -80,7 +80,7 @@ useEffect(() => {
               {reference}
             </p>
           </div>
-          <Link to="/lookup">
+          <Link to={`/ticket/${reference}`}>
             <Button variant="outline">Check Ticket Status</Button>
           </Link>
         </div>
@@ -145,7 +145,7 @@ useEffect(() => {
                   onBlur={handleBlur}
                 />
                 <Input
-                  label="Number of Guests *"
+                  label="Number of Guests *  (Please, specify the total number of guests including yourself.)"
                   name="number_of_guests"
                   type="number"
                   min={1}

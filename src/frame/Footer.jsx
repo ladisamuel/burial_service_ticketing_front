@@ -109,7 +109,7 @@ export default function Footer() {
 
         <div className="border-t border-white/15">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#B7C7AF]">
-            <span>Ladipo Family · +234-806-701-0503</span>
+            <span>Ladipo Family · +234-806-701-0503 · +234-706-531-4146</span>
             <span>Created with love by Family and Friends</span>
           </div>
         </div>

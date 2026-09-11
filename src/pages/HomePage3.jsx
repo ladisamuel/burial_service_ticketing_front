@@ -8,7 +8,7 @@ import img4 from '../assets/imgs/4.jpg'
 import img5 from '../assets/imgs/5.jpg'
 import img6 from '../assets/imgs/with_gaurd.jpg'
 import api from "../api/axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 /* ---------------------------------------------------------------------- */
@@ -26,51 +26,43 @@ const eras = [
   {
     season: "Spring",
     years: "1938 - 1960",
-    title: "A Humble Beginning",
-    body: "Amos Iyiola Ladipo was born in Ido, Oyo, into a family where hard work, discipline, faith, and respect for others were not simply taught but lived every day. His early years shaped the man he would become — hardworking, dependable, and deeply committed to his family. He learned early that a good name was worth more than material possessions, and he carried that belief throughout his life.",
+    title: "The Girl from Charleston",
+    body: "Eleanor Rose was born on a warm spring morning, the youngest of four. She grew up in a house full of books, music, and laughter, and spent summers on the porch working through the local library shelf by shelf.",
   },
   {
     season: "Summer",
     years: "1961 - 1980",
-    title: "Building a Home",
-    body: "As a young man, Amos began building a life of his own. He married, started a family, and devoted himself to providing a stable and loving home for his children. Like many fathers of his generation, he worked hard and made sacrifices quietly. There were long days, difficult seasons, and many responsibilities, but he rarely complained. His greatest joy was seeing his children grow, go to school, become responsible adults, and find their own paths in life.",
+    title: "A Home Built on Love",
+    body: "She married Robert Whitfield in June 1961, and together they raised three children in a house that always smelled of something baking. Neighbors knew her by the light in her kitchen window and a laugh that carried across any room.",
   },
   {
     season: "Autumn",
     years: "1965 - 1995",
-    title: "The Years of Responsibility",
-    body: "Those who knew Amos remember a man who believed strongly in responsibility. He understood that being a father meant more than putting food on the table. It meant showing up, keeping one's word, correcting when necessary, encouraging when things became difficult, and making sure that the family remained together. He was a provider, a teacher, a disciplinarian, and a source of wisdom to those around him.",
+    title: "Thirty Years in the Classroom",
+    body: "For three decades Eleanor taught fourth grade at Maplewood Elementary. She believed children thrived when they felt seen, and made sure every one of hers did — earning Teacher of the Year four times over.",
   },
   {
     season: "Winter",
     years: "1995 - 2024",
-    title: "A New Generation",
-    body: "Becoming a grandfather brought a different kind of happiness into Amos's life. The grandchildren quickly discovered that Grandpa had a softer side. He enjoyed their visits, their questions, their noise, and even their mischief. He had stories for every occasion and advice for almost every problem. To his grandchildren, he was not only their grandfather but a living connection to the family history and the generations that came before them.",
-  },
-  {
-    season: "Later Years",
-    years: "2020 - 2026",
-    title: "A Life of Gratitude",
-    body: "In his later years, Amos became increasingly grateful for the life he had lived and the family he had built. He enjoyed quiet moments, conversations with loved ones, familiar faces, and the simple comfort of having his family around him. He was proud of his children and grandchildren and took great satisfaction in knowing that the values he had spent a lifetime teaching would continue through them.",
+    title: "Gratitude in Every Season",
+    body: "Retirement meant her garden, her grandchildren, and a book club thirty-two years running. She traced her roots to Ireland and picked up watercolors at seventy-four. She never once stopped being curious.",
   },
 ];
 
 const loved = [
-  { label: "Early morning prayer with family", icon: "pi-sun" },
-  { label: "A good cup of tea and a quiet afternoon", icon: "pi-cloud" },
-  { label: "Listening to the news and discussing current affairs", icon: "pi-star" },
-  { label: "Family gatherings, celebrations and occasions", icon: "pi-users" },
-  { label: "Telling stories about the old days", icon: "pi-comments" },
-  { label: "Praying for his children and grandchildren", icon: "pi-heart-fill" },
-  { label: "Seeing his children succeed and stand on their own", icon: "pi-check-circle" },
+  { label: "Coffee on the porch at sunrise", icon: "pi-sun" },
+  { label: "Old movies on rainy afternoons", icon: "pi-cloud" },
+  { label: "His garden, every September", icon: "pi-star" },
+  { label: "Long letters, always hand-written", icon: "pi-send" },
+  { label: "His grandchildren, above all else", icon: "pi-heart-fill" },
 ];
 
 const numbers = [
   { value: "77", label: "years of a beautiful life" },
   { value: "12", label: "children" },
   { value: "21", label: "grandchildren" },
-  { value: "50+", label: "years of family memories" },
-  { value: "1", label: "legacy that will live on" },
+  { value: "35", label: "years in the classroom" },
+  { value: "32", label: "years of her book club" },
 ];
 
 // const gallery = [
@@ -192,47 +184,9 @@ export default function HomePage() {
     setGallery(res?.data?.results)
   }
   
-  const sampleTributes = [
-  {
-    message:
-      "Daddy was a man who believed that family came first. He was not always a man of many words, but his actions spoke for him. He worked hard, provided for us, corrected us when we were wrong, and celebrated every little achievement. We will forever be grateful for the life he gave us and the values he taught us.",
-    name: "Adeola Ladipo",
-    relationship: "Daughter",
-  },
-  {
-    message:
-      "Grandpa had a way of making you feel important whenever you were around him. He loved hearing about school, work, and everything happening in our lives. His stories about his younger days were some of our favourite conversations. I will always remember sitting beside him and listening to him talk.",
-    name: "Tolu Ladipo",
-    relationship: "Grandchild",
-  },
-  {
-    message:
-      "He was a quiet strength in our family. Whenever there was a problem, people naturally looked to him. He would listen, think carefully, and then give his advice. Sometimes the advice was difficult to hear, but years later we understood why he said those things. His wisdom will remain with us.",
-    name: "Kunle Ladipo",
-    relationship: "Son",
-  },
-  {
-    message:
-      "One of the things I will miss most is seeing him surrounded by his family. He enjoyed occasions, visits, conversations, and simply knowing that everyone was doing well. His greatest pride was his children and grandchildren. He gave us a family to come home to, and that is a gift we will carry forever.",
-    name: "Bisi Ladipo",
-    relationship: "Daughter",
-  },
-  {
-    message:
-      "Grandpa taught us that respect matters. Respect your elders, respect your family, respect your work, and most importantly, respect yourself. Those lessons seemed ordinary when we were young, but they became some of the most important things he left us.",
-    name: "Femi Ladipo",
-    relationship: "Grandchild",
-  },
-  {
-    message:
-      "There are people whose presence becomes part of the foundation of a family. That was who he was to us. His chair, his voice, his greetings, his advice and even his little complaints became familiar parts of home. We miss him deeply, but we are thankful for the years we had with him.",
-    name: "Sade Ladipo",
-    relationship: "Daughter",
-  },
-];
 
   const getTributes = async () => {
-    const res = await api.get('/tributes/admin/tribute/?count=2')
+    const res = await api.get('/tributes/admin/tribute/')
     console.log('Get response', res)
     // setTribs(res?.data?.results)
     setTributes(res?.data?.results)
@@ -289,16 +243,10 @@ const trib = [
           </h1>
 
           <p className="mt-5 max-w-md text-lg text-[#3A3F35] font-display italic leading-relaxed">
-            {/* He turned every ordinary moment into something worth
-            remembering — a laugh, a meal, a hand held in the dark. */}
-          
-  A father, grandfather, provider, teacher, and friend. He lived a
-  simple life, loved his family deeply, and left behind memories that
-  will continue to speak long after his voice has gone quiet.
+            He turned every ordinary moment into something worth
+            remembering — a laugh, a meal, a hand held in the dark.
           </p>
-          <p className="mt-3 text-sm text-[#656B5E]">
-          {/* — */}
-          His Children</p> 
+          <p className="mt-3 text-sm text-[#656B5E]">— Children</p>
 
           <div className="mt-10 flex flex-wrap gap-2">
             {meta.map((m) => (
@@ -319,24 +267,24 @@ const trib = [
           <div className="relative  h-[100%] w-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(28,33,28,0.35)] aspect-[4/5]">
             <img
               src={portrait}
-              alt="Portrait of Amos Iyiola Ladipo"
+              alt="Portrait of Eleanor Rose Whitfield"
               className="w-full h-[full] object-cover"
             />
           </div>
           <div className="absolute -bottom-5 -left-5 rounded-2xl bg-white/90 backdrop-blur border border-[#DEDBCF] px-5 py-3 shadow-lg">
-            <p className="font-display text-2xl leading-none">1938-2026</p>
+            <p className="font-display text-2xl leading-none">1938-2024</p>
           </div>
         </Reveal>
       </section>
 
       {/* ---------------- Story ---------------- */}
-      <section id="story" className="max-w-6xl mx-auto px-6 py-24">
+      {/* <section id="story" className="max-w-6xl mx-auto px-6 py-24">
         <Reveal className="max-w-xl mb-16">
           <p className="text-xs tracking-[0.22em] uppercase text-[#6F8267] mb-3">
             His Story
           </p>
           <h2 className="font-display text-4xl sm:text-5xl leading-tight">
-            A life of family, faith, and memories
+            A life in bloom, season by season
           </h2>
         </Reveal>
 
@@ -351,7 +299,7 @@ const trib = [
               <Reveal key={era.title} delay={i * 80}>
                 <div
                   className={`relative flex flex-col sm:flex-row items-start gap-6 sm:gap-10 ${
-                    i % 2 === 1 ? " sm:text-right" : "sm:flex-row-reverse"
+                    i % 2 === 1 ? "sm:flex-row-reverse sm:text-right" : ""
                   }`}
                 >
                   <div className="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 top-1 w-14 h-14 rounded-full bg-[#F5F6F1] border border-[#DEDBCF] flex items-center justify-center shadow-sm z-10">
@@ -384,8 +332,70 @@ const trib = [
             ))}
           </div>
         </div>
+      </section> */}
+
+      {/* ---------------- Story ---------------- */}
+      <section id="story" className="max-w-6xl mx-auto px-6 py-24">
+        <Reveal className="max-w-xl mb-16">
+          <p className="text-xs tracking-[0.22em] uppercase text-[#6F8267] mb-3">
+            His Story
+          </p>
+          <h2 className="font-display text-4xl sm:text-5xl leading-tight">
+            A life in bloom, season by season
+          </h2>
+        </Reveal>
+
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="absolute left-[27px] sm:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-[#6F8267]/60 via-[#DEDBCF] to-[#6F8267]/60 sm:-translate-x-1/2"
+          />
+
+
+          <div className="space-y-14">
+            {tribs.map((era, i) => (
+              era?.visibility?.toLowerCase() === 'public' ?
+              (
+              <Reveal key={era.title} delay={i * 80}>
+                <div
+                  className={`relative flex flex-col sm:flex-row items-start gap-6 sm:gap-10 ${
+                    i % 2 === 1 ? "sm:flex-row-reverse sm:text-right" : ""
+                  }`}
+                >
+                  <div className="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 top-1 w-14 h-14 rounded-full bg-[#F5F6F1] border border-[#DEDBCF] flex items-center justify-center shadow-sm z-10">
+                    <LeafMark className="w-5 h-5 text-[#6F8267]" />
+                  </div>
+
+                  <div className="hidden sm:block sm:w-1/2" />
+
+                  <div className="pl-20 sm:pl-0 sm:w-1/2">
+                    <div
+                      className={`rounded-3xl bg-[#ECEAE1]/70 border border-[#DEDBCF] p-6 sm:p-8 ${
+                        i % 2 === 1 ? "sm:mr-2" : "sm:ml-2"
+                      }`}
+                    >
+                      <div
+                        className={`flex items-center gap-3 text-xs tracking-[0.18em] uppercase text-[#6F8267] mb-2 ${
+                          i % 2 === 1 ? "sm:justify-end" : ""
+                        }`}
+                      >
+                        <span>{era.relationship}</span>
+                        {/* <span className="text-[#B7B2A0]">·</span>
+                        <span className="text-[#656B5E] normal-case tracking-normal">{era.years}</span> */}
+                      </div>
+                      <h3 className="font-display text-2xl mb-3">{era.name}</h3>
+                      <p className="text-[#3A3F35] leading-relaxed">{era.message  }</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+              ) : null
+
+            ))}
+          </div>
+        </div>
       </section>
- 
+
       {/* ---------------- Moments & numbers ---------------- */}
       <section className="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6">
         <Reveal className="rounded-[2rem] bg-[#1C211C] text-white p-8 sm:p-10">
@@ -472,42 +482,26 @@ const trib = [
                 Words from those who loved her
               </h2>
             </div>
-            <Link
-              to="/share-memory"
+            <a
+              href="#"
               className="inline-flex items-center gap-1.5 text-sm text-[#3A3F35] underline underline-offset-4 decoration-[#B7B2A0] hover:decoration-[#1C211C]"
             >
               Leave a tribute
               <i className="pi pi-arrow-up-right text-xs" />
-            </Link>
+            </a>
           </Reveal>
- 
+
           <Reveal
             delay={100}
             className="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 -mx-6 px-6"
-            >
-            {tributes.length <= 5 ? 
-            
-            sampleTributes.map((t) => (
-              <div
-                key={t.id}
-                className="snap-start shrink-0 w-[300px] sm:w-[380px] rounded-[1.75rem] bg-[#F5F6F1] border border-[#DEDBCF] p-7"
-              >
-                <QuoteMark className="w-7 h-5 text-[#C79A56] mb-4" />
-                <p className="text-[#3A3F35] leading-relaxed mb-6">{t.message} </p>
-                <p className="text-sm font-bold">{t.name}</p>
-                <p className="text-xs text-[#656B5E]">{t.relationship}</p>
-              </div>
-            ))
-            
-            : ''}
-          
+          >
             {tributes.map((t) => (
               <div
                 key={t.id}
                 className="snap-start shrink-0 w-[300px] sm:w-[380px] rounded-[1.75rem] bg-[#F5F6F1] border border-[#DEDBCF] p-7"
               >
                 <QuoteMark className="w-7 h-5 text-[#C79A56] mb-4" />
-                <p className="text-[#3A3F35] leading-relaxed mb-6">{t.message} </p>
+                <p className="text-[#3A3F35] leading-relaxed mb-6">{t.message} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aut quos commodi modi laudantium esse impedit facere eius autem illum. </p>
                 <p className="text-sm font-bold">{t.name}</p>
                 <p className="text-xs text-[#656B5E]">{t.relationship}</p>
               </div>
@@ -515,43 +509,6 @@ const trib = [
           </Reveal>
         </div>
       </section>
-
-      <section className="max-w-6xl mx-auto px-6 py-24">
-  <Reveal className="max-w-3xl mx-auto text-center">
-    <QuoteMark className="w-8 h-6 text-[#C79A56] mx-auto mb-6" />
-
-    <h2 className="font-display text-4xl sm:text-5xl leading-tight mb-6">
-      Forever remembered, forever loved.
-    </h2>
-
-    <p className="text-[#3A3F35] leading-relaxed text-lg">
-      Though we cannot see him anymore, we see pieces of him everywhere,
-      in the values he taught us, in the family he built, in the stories we
-      tell, and in the lives of his children and grandchildren. His journey
-      on earth has ended, but the love he gave and the lessons he left behind
-      will continue from one generation to another.
-    </p>
-
-    <p className="mt-8 font-display italic text-xl text-[#6F8267]">
-      Rest peacefully, Daddy. You have done well.
-    </p>
-
-            <div className="pt-5 flex flex-col md:flex-row justify-center gap-5">
-              <Link
-                to='/share-memory'
-                className="px-4 py-2 bg-[#B4652F] text-white rounded-lg text-xs tracking-[0.15em] uppercase hover:bg-[#8A7F6A] transition-colors"
-              >
-                Leave a tribute
-              </Link>
-              <Link
-                to='/request-ticket'
-                className="px-4 py-2 bg-[#B4652F] text-white rounded-lg text-xs tracking-[0.15em] uppercase hover:bg-[#8A7F6A] transition-colors"
-              >
-                Book a ticket
-              </Link>
-            </div>
-  </Reveal>
-</section>
 
     </div>
   );
