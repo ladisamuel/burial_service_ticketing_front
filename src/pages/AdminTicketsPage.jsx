@@ -163,7 +163,7 @@ export default function AdminTicketsPage() {
                         <Button size="sm" variant="danger" onClick={() => setDeclineModal({ open: true, ticketId: t.id, notes: '' })}>
                           
                           
-                          {loading.loading && loading.type === 'declined' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
+                          {loading.loading && loading.type === 'declined' ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
                         </Button>
                       </div>
                     )}
@@ -223,7 +223,7 @@ export default function AdminTicketsPage() {
           <div className="flex justify-end gap-2">
             <Button variant="ghost" onClick={() => setDeclineModal({ open: false, ticketId: null, notes: '' })}>Cancel</Button>
             <Button variant="danger" onClick={handleDecline}>              
-              {loading.loading && loading.type === 'declined' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
+              {loading.loading && loading.type === 'declined' ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
             </Button>
           </div>
         </div>
