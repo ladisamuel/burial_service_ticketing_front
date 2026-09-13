@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
  
 
 const meta = [
-  { label: "Born", value: "March 11, 1938", icon: "pi-calendar" },
+  { label: "Born", value: "March 17, 1949", icon: "pi-calendar" },
   { label: "Passed", value: "May 19, 2026", icon: "pi-calendar-times" },
   { label: "Hometown", value: "Ido, Oyo", icon: "pi-map-marker" },
 ];
@@ -25,7 +25,7 @@ const meta = [
 const eras = [
   {
     season: "Spring",
-    years: "1938 - 1960",
+    years: "1949 - 1960",
     title: "A Humble Beginning",
     body: "Amos Iyiola Ladipo was born in Ido, Oyo, into a family where hard work, discipline, faith, and respect for others were not simply taught but lived every day. His early years shaped the man he would become — hardworking, dependable, and deeply committed to his family. He learned early that a good name was worth more than material possessions, and he carried that belief throughout his life.",
   },
@@ -325,7 +325,7 @@ const trib = [
             />
           </div>
           <div className="absolute -bottom-5 -left-5 rounded-2xl bg-white/90 backdrop-blur border border-[#DEDBCF] px-5 py-3 shadow-lg">
-            <p className="font-display text-2xl leading-none">1938-2026</p>
+            <p className="font-display text-2xl leading-none">1949-2026</p>
           </div>
         </Reveal>
       </section>
