@@ -67,7 +67,7 @@ const loved = [
 
 const numbers = [
   { value: "77", label: "years of a beautiful life" },
-  { value: "12", label: "children" },
+  { value: "13", label: "children" },
   { value: "21", label: "grandchildren" },
   { value: "50+", label: "years of family memories" },
   { value: "1", label: "legacy that will live on" },
