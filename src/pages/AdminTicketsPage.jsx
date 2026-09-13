@@ -9,6 +9,7 @@ import Select from '../components/ui/Select.jsx'
 import Badge from '../components/ui/Badge.jsx'
 import Modal from '../components/ui/Modal.jsx'
 import api from '../api/axios.js'
+import { formatDate, formatDateTime } from '../utils/helpers.js'
 
 export default function AdminTicketsPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -16,6 +17,7 @@ export default function AdminTicketsPage() {
   const [search, setSearch] = useState(searchParams.get('search') || '')
   const [statusFilter, setStatusFilter] = useState(searchParams.get('status') || 'all')
   const [declineModal, setDeclineModal] = useState({ open: false, ticketId: null, notes: '' })
+  const [loading, setLoading] = useState({loading: false, type: '', id: null})
 
   const statusOptions = [
     { value: 'all', label: 'All Statuses' },
@@ -62,16 +64,20 @@ export default function AdminTicketsPage() {
   }
 
   const handleApprove = async (id) => {
+    setLoading({ loading: true, type: 'approved', id: id })
     try {
       await api.patch('/tickets/admin/tickets/' + id + '/approve/')
       toast.success('Ticket approved.')
       fetchTickets()
+      setLoading({ loading: false, type: '', id: null })
     } catch {
       toast.error('Failed to approve ticket.')
     }
+    setLoading({ loading: false, type: '', id: null })
   }
-
+  
   const handleDecline = async () => {
+    setLoading({ loading: true, type: 'declined', id: null })
     if (!declineModal.ticketId) return
     try {
       await api.patch('/tickets/admin/tickets/' + declineModal.ticketId + '/decline/', {
@@ -83,8 +89,9 @@ export default function AdminTicketsPage() {
     } catch {
       toast.error('Failed to decline ticket.')
     }
+    setLoading({ loading: false, type: '', id: null })
   }
-
+  
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-slate-800">Ticket Management</h1>
@@ -113,6 +120,7 @@ export default function AdminTicketsPage() {
               <th className="px-4 py-3 font-medium text-slate-600">Email</th>
               <th className="px-4 py-3 font-medium text-slate-600">Guests</th>
               <th className="px-4 py-3 font-medium text-slate-600">Phone</th>
+              <th className="px-4 py-3 font-medium text-slate-600">Request date</th>
               <th className="px-4 py-3 font-medium text-slate-600">Status</th>
               <th className="px-4 py-3 font-medium text-slate-600">Reference</th>
               <th className="px-4 py-3 font-medium text-slate-600">Ticket #</th>
@@ -132,6 +140,7 @@ export default function AdminTicketsPage() {
                   <td className="px-4 py-3 text-slate-600">{t.email}</td>
                   <td className="px-4 py-3 text-slate-600">{t.number_of_guests}</td>
                   <td className="px-4 py-3 text-slate-600">{t.phone}</td>
+                  <td className="px-4 py-3 text-slate-600">{formatDateTime(t.created_at)}</td>
                   <td className="px-4 py-3">
                     <Badge variant={
                       t.status === 'APPROVED' ? 'success' :
@@ -148,9 +157,13 @@ export default function AdminTicketsPage() {
                   <td className="px-4 py-3">
                     {t.status === 'PENDING' && (
                       <div className="flex gap-2">
-                        <Button size="sm" onClick={() => handleApprove(t.id)}>Approve</Button>
+                        <Button size="sm" onClick={() => handleApprove(t.id)}>
+                          {loading.loading && loading.type === 'approved' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Approve'}
+                        </Button>
                         <Button size="sm" variant="danger" onClick={() => setDeclineModal({ open: true, ticketId: t.id, notes: '' })}>
-                          Decline
+                          
+                          
+                          {loading.loading && loading.type === 'declined' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
                         </Button>
                       </div>
                     )}
@@ -163,7 +176,9 @@ export default function AdminTicketsPage() {
                     {/*  */}
                     {t.status === 'DECLINED' && t.notes || t.status === 'DECLINED' && (
                       <div className="flex gap-2">
-                        <Button size="sm" onClick={() => handleApprove(t.id)}>Approve</Button>
+                        <Button size="sm" onClick={() => handleApprove(t.id)}>
+                          {loading.loading && loading.type === 'approved' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Approve'}
+                        </Button>
                         <span className="text-xs text-slate-500">{t.notes}</span>
                       </div>
                     )}
@@ -207,7 +222,9 @@ export default function AdminTicketsPage() {
           />
           <div className="flex justify-end gap-2">
             <Button variant="ghost" onClick={() => setDeclineModal({ open: false, ticketId: null, notes: '' })}>Cancel</Button>
-            <Button variant="danger" onClick={handleDecline}>Decline</Button>
+            <Button variant="danger" onClick={handleDecline}>              
+              {loading.loading && loading.type === 'declined' && loading.id === t.id ? <i className="pi pi-spin pi-spinner" /> : 'Decline'}
+            </Button>
           </div>
         </div>
       </Modal>
